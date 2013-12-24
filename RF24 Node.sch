@@ -8985,7 +8985,8 @@ Each DS18B20 has a unique 64-bit serial code, which allows multiple DS18B20s to 
 <part name="A4" library="SparkFun-Connectors" deviceset="M03" device="PTH"/>
 <part name="SUPPLY5" library="supply2" deviceset="GND" device=""/>
 <part name="DS18B20" library="Ava" deviceset="DS1820" device="TO92" value=""/>
-<part name="LM1117" library="lm1117" deviceset="LM1117T-*" device="-V" technology="3.3" value=""/>
+<part name="LM1117T" library="lm1117" deviceset="LM1117T-*" device="-V" technology="3.3" value=""/>
+<part name="REGJMP" library="SparkFun-Connectors" deviceset="M02" device="PTH" value=""/>
 <part name="D3" library="SparkFun-Connectors" deviceset="M02" device="PTH" value=""/>
 <part name="SUPPLY6" library="supply2" deviceset="GND" device=""/>
 </parts>
@@ -9035,9 +9036,10 @@ Each DS18B20 has a unique 64-bit serial code, which allows multiple DS18B20s to 
 <instance part="A4" gate="G$1" x="50.8" y="121.92"/>
 <instance part="SUPPLY5" gate="GND" x="60.96" y="119.38" rot="R90"/>
 <instance part="DS18B20" gate="G$1" x="53.34" y="76.2" rot="MR90"/>
-<instance part="LM1117" gate="G$1" x="93.98" y="127"/>
-<instance part="D3" gate="G$1" x="50.8" y="88.9"/>
-<instance part="SUPPLY6" gate="GND" x="60.96" y="88.9" rot="R90"/>
+<instance part="LM1117T" gate="G$1" x="93.98" y="127"/>
+<instance part="REGJMP" gate="G$1" x="76.2" y="111.76"/>
+<instance part="D3" gate="G$1" x="50.8" y="91.44"/>
+<instance part="SUPPLY6" gate="GND" x="60.96" y="91.44" rot="R90"/>
 </instances>
 <busses>
 </busses>
@@ -9108,7 +9110,7 @@ Each DS18B20 has a unique 64-bit serial code, which allows multiple DS18B20s to 
 <pinref part="SUPPLY5" gate="GND" pin="GND"/>
 </segment>
 <segment>
-<pinref part="LM1117" gate="G$1" pin="GND"/>
+<pinref part="LM1117T" gate="G$1" pin="GND"/>
 <pinref part="SUPPLY10" gate="GND" pin="GND"/>
 </segment>
 <segment>
@@ -9206,11 +9208,9 @@ Each DS18B20 has a unique 64-bit serial code, which allows multiple DS18B20s to 
 <pinref part="PWR" gate="G$1" pin="2"/>
 <pinref part="SW_PWR" gate="BEF1" pin="O"/>
 <wire x1="101.6" y1="104.14" x2="101.6" y2="111.76" width="0.1524" layer="91"/>
-<wire x1="101.6" y1="111.76" x2="83.82" y2="111.76" width="0.1524" layer="91"/>
-<wire x1="83.82" y1="111.76" x2="83.82" y2="127" width="0.1524" layer="91"/>
-<pinref part="LM1117" gate="G$1" pin="IN"/>
-<wire x1="83.82" y1="127" x2="86.36" y2="127" width="0.1524" layer="91"/>
 <junction x="101.6" y="104.14"/>
+<pinref part="REGJMP" gate="G$1" pin="1"/>
+<wire x1="101.6" y1="111.76" x2="83.82" y2="111.76" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$2" class="0">
@@ -9342,18 +9342,6 @@ Each DS18B20 has a unique 64-bit serial code, which allows multiple DS18B20s to 
 <label x="58.42" y="106.68" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="D3" class="0">
-<segment>
-<pinref part="IC1" gate="1" pin="PD3(INT1/OC2B/PCINT19)"/>
-<wire x1="-30.48" y1="43.18" x2="-17.78" y2="43.18" width="0.1524" layer="91"/>
-<label x="-27.94" y="43.18" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="D3" gate="G$1" pin="2"/>
-<wire x1="58.42" y1="91.44" x2="60.96" y2="91.44" width="0.1524" layer="91"/>
-<label x="60.96" y="91.44" size="1.778" layer="95"/>
-</segment>
-</net>
 <net name="D6" class="0">
 <segment>
 <pinref part="IC1" gate="1" pin="PD6(AIN0/OC0A/PCINT22)"/>
@@ -9392,7 +9380,7 @@ Each DS18B20 has a unique 64-bit serial code, which allows multiple DS18B20s to 
 </net>
 <net name="N$1" class="0">
 <segment>
-<pinref part="LM1117" gate="G$1" pin="OUT"/>
+<pinref part="LM1117T" gate="G$1" pin="OUT"/>
 <wire x1="101.6" y1="127" x2="109.22" y2="127" width="0.1524" layer="91"/>
 <wire x1="109.22" y1="127" x2="109.22" y2="124.46" width="0.1524" layer="91"/>
 <wire x1="109.22" y1="124.46" x2="109.22" y2="109.22" width="0.1524" layer="91"/>
@@ -9410,6 +9398,26 @@ Each DS18B20 has a unique 64-bit serial code, which allows multiple DS18B20s to 
 <pinref part="IC1" gate="1" pin="PC4(ADC4/SDA/PCINT12)"/>
 <wire x1="-30.48" y1="63.5" x2="-17.78" y2="63.5" width="0.1524" layer="91"/>
 <label x="-27.94" y="63.5" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="N$5" class="0">
+<segment>
+<pinref part="REGJMP" gate="G$1" pin="2"/>
+<wire x1="83.82" y1="114.3" x2="83.82" y2="127" width="0.1524" layer="91"/>
+<pinref part="LM1117T" gate="G$1" pin="IN"/>
+<wire x1="83.82" y1="127" x2="86.36" y2="127" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="D3" class="0">
+<segment>
+<pinref part="IC1" gate="1" pin="PD3(INT1/OC2B/PCINT19)"/>
+<wire x1="-30.48" y1="43.18" x2="-17.78" y2="43.18" width="0.1524" layer="91"/>
+<label x="-27.94" y="43.18" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="D3" gate="G$1" pin="2"/>
+<wire x1="58.42" y1="93.98" x2="60.96" y2="93.98" width="0.1524" layer="91"/>
+<label x="58.42" y="93.98" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
