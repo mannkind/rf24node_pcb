@@ -8989,6 +8989,7 @@ Each DS18B20 has a unique 64-bit serial code, which allows multiple DS18B20s to 
 <part name="REGJMP" library="SparkFun-Connectors" deviceset="M02" device="PTH" value=""/>
 <part name="D3" library="SparkFun-Connectors" deviceset="M02" device="PTH" value=""/>
 <part name="SUPPLY6" library="supply2" deviceset="GND" device=""/>
+<part name="R2" library="resistor" deviceset="R-US_" device="0204/2V" value="4K7"/>
 </parts>
 <sheets>
 <sheet>
@@ -9040,6 +9041,7 @@ Each DS18B20 has a unique 64-bit serial code, which allows multiple DS18B20s to 
 <instance part="REGJMP" gate="G$1" x="76.2" y="111.76"/>
 <instance part="D3" gate="G$1" x="50.8" y="91.44"/>
 <instance part="SUPPLY6" gate="GND" x="60.96" y="91.44" rot="R90"/>
+<instance part="R2" gate="G$1" x="17.78" y="78.74" rot="R90"/>
 </instances>
 <busses>
 </busses>
@@ -9170,6 +9172,9 @@ Each DS18B20 has a unique 64-bit serial code, which allows multiple DS18B20s to 
 <pinref part="C4" gate="G$1" pin="1"/>
 <pinref part="DS18B20" gate="G$1" pin="VCC"/>
 <wire x1="27.94" y1="78.74" x2="48.26" y2="78.74" width="0.1524" layer="91"/>
+<pinref part="R2" gate="G$1" pin="2"/>
+<wire x1="27.94" y1="78.74" x2="30.48" y2="78.74" width="0.1524" layer="91"/>
+<wire x1="30.48" y1="78.74" x2="17.78" y2="83.82" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <wire x1="137.16" y1="106.68" x2="132.08" y2="106.68" width="0.1524" layer="91"/>
@@ -9328,6 +9333,10 @@ Each DS18B20 has a unique 64-bit serial code, which allows multiple DS18B20s to 
 <pinref part="DS18B20" gate="G$1" pin="DQ"/>
 <wire x1="48.26" y1="76.2" x2="38.1" y2="76.2" width="0.1524" layer="91"/>
 <label x="38.1" y="76.2" size="1.778" layer="95"/>
+<pinref part="R2" gate="G$1" pin="1"/>
+<wire x1="38.1" y1="76.2" x2="30.48" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="30.48" y1="76.2" x2="17.78" y2="73.66" width="0.1524" layer="91"/>
+<junction x="38.1" y="76.2"/>
 </segment>
 </net>
 <net name="D2" class="0">
